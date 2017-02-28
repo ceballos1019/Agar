@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href ondurationchange=""="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+    </script>
+  </head>
+  <body>
+    <div id="recuadro" name="recuadro" class="recuadro">
+        <div id="inicio" class="inicio">
+          <h3 style="display:inline-block">Comunicaciones II</h3>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Escudo_de_Atl%C3%A9tico_Nacional.svg/2000px-Escudo_de_Atl%C3%A9tico_Nacional.svg.png">
+          <input type="text" id="txtMensaje" name="nick" placeholder="Nick" >
+          <select id="color"  name="color">
+            <option value="green">Verde</option>
+            <option value="red">Rojo</option>
+            <option value="blue">Celeste</option>
+          </select>
+          <button type="button" id="mapa" name="mapa">Crear plataforma</button>
+          <button type="button" id="boton" name="boton">Conectarse</button>
+          <hr>
+          <p>Selecciona crear plataforma antes de iniciar el juego</p>
+        </div>
+    </div>
+
+    <section id="plataforma">
+      <aside id="contenedor">
+        <h3>Ranking</h3>
+        <ul id="puesto" style="float:left">
+          <li>1.</li>
+          <li>2.</li>
+          <li>3.</li>
+          <li>4.</li>
+        </ul>
+        <ul id="listaj"></ul>
+      </aside>
+    </section>
+  </body>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</html>
