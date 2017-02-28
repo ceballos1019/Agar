@@ -80,8 +80,8 @@ function doColision()
   //Colision con las bolitas
   var $div1=$("#"+$(txtMen).val());
   //Para jugador principal
-  var x1 = $div1.offset().left;
-  var y1 = $div1.offset().top;
+  var x1 = $div1.offset().left+25;
+  var y1 = $div1.offset().top+25;
   var h1 = $div1.outerHeight(true);
   var w1 = $div1.outerWidth(true);
   var b1 = y1+h1;
@@ -91,19 +91,46 @@ function doColision()
   var y2 = $(this).offset().top;
   var h2 = $(this).outerHeight(true);
   var w2 = $(this).outerWidth(true);
-  var b2 = y2+h2;
-  var r2 = x2+w2;
+  var b2 = y2+h2;  //top + alto
+  var r2 = x2+w2; //Left + ancho
 
 //Cuando no se está tocando la bolita a eliminar
-  if(b1<y2 || y1>b2 || r1 < x2 || x1> r2)
+  /*if(b1<y2 || y1>b2 || r1 < x2 || x1> r2)
   {
     return false;
+  }*/
+  if(x1>x2 && x1<r2)
+  {
+    console.log("x1: " + x1 + ",x2: " + x2 + ",r2: " + r2);
+      //Hacer que la bola vaya creciendo
+    $("#"+$(txtMen).val()).css("height","+=3");
+    $("#"+$(txtMen).val()).css("width","+=3");
+    $(deleted).remove();
   }
-  //Hacer que la bola vaya creciendo
-  $("#"+$(txtMen).val()).css("height","+=1");
-  $("#"+$(txtMen).val()).css("width","+=1");
-  $(deleted).remove();
-
+  else if(r1>x2 && r1<r2)
+  {
+    console.log("r1: " + r1 + ",x2: " + x2 + ",r2: " + r2);
+    //Hacer que la bola vaya creciendo
+    $("#"+$(txtMen).val()).css("height","+=3");
+    $("#"+$(txtMen).val()).css("width","+=3");
+    $(deleted).remove();  
+  }
+  else if(b1>y2 && b1<b2)
+  {
+    console.log("b1: " + b1 + ",y2: " + y2 + ",b2: " + b2);
+    //Hacer que la bola vaya creciendo
+    $("#"+$(txtMen).val()).css("height","+=3");
+    $("#"+$(txtMen).val()).css("width","+=3");
+    $(deleted).remove();
+  }
+  else if(y1>y2 && y1<b2)
+  {
+    console.log("y1: " + y1 + ",y2: " + y2 + ",b2: " + b2);
+    //Hacer que la bola vaya creciendo
+    $("#"+$(txtMen).val()).css("height","+=3");
+    $("#"+$(txtMen).val()).css("width","+=3");
+    $(deleted).remove();
+  }
   var objBall={del:$(deleted).text(),
            sum:"#"+$(txtMen).val()+"-",
            name:$(txtMen).val()}
@@ -114,20 +141,18 @@ function doColision()
 //Recibir datos del servidor
 socket.on("deleted",function(data)
 {
-  console.log("El nombre de la bolita es: " +data.del);
   var score = parseInt($(data.sum).text());
   score+=5;
   $(data.sum).text(score);
   $(data.sum).attr("data-percentage", score);
   $(data.sum).append("<span> - " + data.name + "</span>");
-  $("#bolita"+data.del).remove();
+  $("#bolita"+data.del).remove();  //borrado por sockets
 });
 
 //Capturar el color seleccionado por el usuario
 $("#boton").on("click",function()
 {
   var  playerColor=$(color).val();
-  console.log("color es:" + playerColor);
   var  playerBorder;
   switch (playerColor) {
     case 'green':
@@ -143,7 +168,6 @@ $("#boton").on("click",function()
       playerBorder="black";
   }
 
-console.log("Borde es:" + playerBorder);
 //Objeto JSON correspondiente a los jugadores
   var objPlayer={id: $(txtMen).val(),
                  color: $(color).val(),
@@ -200,7 +224,6 @@ $("body").on("mousemove",function(event)
     var heighte=parseInt($enemy.css("height"));
     var widthe=parseInt($enemy.css("width"));
 
-    console.log("height es: " +heighte)
     var $player=$("#"+$(txtMen).val()); //Id de nuestro jugador
     var $typep=$player.attr("type"); //player
     var $namep=$player.attr("name"); //nick de nuestro jugador

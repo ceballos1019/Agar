@@ -2,7 +2,8 @@ body{
   font-family: arial;
   padding: 0px;
   margin: 0px;
-  background-image: url("http://coleccion.educ.ar/coleccion/CD22/img/msc/haciendo-bandera2_IMG.jpg");
+  /*background-color: white;*/
+  background-image: url("http://www.descargarmicrosoftoffice.com/wp-content/uploads/2012/06/cuadricula.png");
 }
 
 #plataforma{
