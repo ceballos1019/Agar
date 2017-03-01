@@ -14,30 +14,31 @@
     <div id="recuadro" name="recuadro" class="recuadro">
         <div id="inicio" class="inicio">
           <h3 style="display:inline-block">Comunicaciones II</h3>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Escudo_de_Atl%C3%A9tico_Nacional.svg/2000px-Escudo_de_Atl%C3%A9tico_Nacional.svg.png">
-          <input type="text" id="txtMensaje" name="nick" placeholder="Nick" >
+          <img src="https://revistaitnow.com/wp-content/uploads/2016/12/telecomunicaciones.jpg">
+          <input type="text" id="txtMensaje" name="nick" placeholder="Nick" maxlenght=4 >
           <select id="color"  name="color">
             <option value="green">Verde</option>
             <option value="red">Rojo</option>
-            <option value="blue">Celeste</option>
+            <option value="blue">Azul</option>
           </select>
           <button type="button" id="mapa" name="mapa">Crear plataforma</button>
           <button type="button" id="boton" name="boton">Conectarse</button>
           <hr>
-          <p>Selecciona crear plataforma antes de iniciar el juego</p>
+          <p>Selecciona "Crear plataforma" antes de iniciar un juego. Desplaza el cursor sobre las celulas pequeñas para hacer tu célula más grande.</p>
         </div>
     </div>
 
     <section id="plataforma">
       <aside id="contenedor">
         <h3>Ranking</h3>
-        <ul id="puesto" style="float:left">
+        <ul id="puesto" style="text-align: left; position: absolute;">
           <li>1.</li>
           <li>2.</li>
           <li>3.</li>
           <li>4.</li>
         </ul>
-        <ul id="listaj"></ul>
+        <ul id="listaj" style="text-align: left; position: relative;">
+        </ul>
       </aside>
     </section>
   </body>

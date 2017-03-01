@@ -16,7 +16,7 @@ app.get("/",function(req,res)
 
 //Funcion para escuhar todo lo que se emite desde el JQuery
 //data son las bolitas emitidas desde el cliente
-io.sockets.on("connection",function(socket)
+io.sockets.on("connect",function(socket)
 {
   socket.on("create", function(data)
 {

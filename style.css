@@ -3,7 +3,7 @@ body{
   padding: 0px;
   margin: 0px;
   /*background-color: white;*/
-  background-image: url("http://www.descargarmicrosoftoffice.com/wp-content/uploads/2012/06/cuadricula.png");
+  background-image: url("https://static1.squarespace.com/static/5511fc7ce4b0a3782aa9418b/t/552ef12ee4b0e9ead81ceefd/1429139759978/learning-the-grid-method.jpg");
 }
 
 #plataforma{
@@ -26,14 +26,13 @@ aside{
 
 }
 
-#puesto ,#listaj {
+#listaj {
   display: inline-block;
   list-style: none;
 
 }
 #puesto li,#listaj li {
-  height: 50px;
-
+  height: 55px;
 }
 aside:hover{
   z-index: -1;
